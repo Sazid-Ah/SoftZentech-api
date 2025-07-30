@@ -13,13 +13,20 @@ const cors = require('cors');
 // ✅ CORS config
 const allowedOrigins = ['http://localhost:80', 'http://softzentech.com'];
 
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true
+// }));
+
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
+    callback(null, true); // Allow every origin
   },
   credentials: true
 }));
